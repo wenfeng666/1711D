@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bw.dao.AdminDao">
+  
+ <select id="list" resultType="Goods">
+ 
+     select * from goods
+ 
+ <where>
+ 
+ 
+	<if test="name!=null and name!=''">and name like concat('%',#{name},'%')</if>
+ 	
+ 	<if test="p1!=null and p1!=0">and dan &gt;=#{p1}  </if>
+ 	
+ 	<if test="p2!=null and p2!=0">and dan &lt;=#{p2}  </if>
+ 	
+ </where>
+ 
+ 
+ </select>
+
+
+
+	
+	
+	<insert id="add">
+	
+	
+	insert into goods values 
+	
+	(null,#{name},#{lei},#{chi},#{shu},#{dan})
+	
+	</insert>
+	
+	
+	
+	
+	
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
